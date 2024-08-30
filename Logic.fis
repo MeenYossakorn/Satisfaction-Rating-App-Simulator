@@ -1,0 +1,47 @@
+[System]
+Name='projectno2'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='สิ่งอำนวยความสะดวกในสถานที่ท่องเที่ยว'
+Range=[0 10]
+NumMFs=3
+MF1='น้อย':'gaussmf',[1.5 0]
+MF2='ปานกลาง':'gaussmf',[1.5 5]
+MF3='ดี':'gaussmf',[1.5 10]
+
+[Input2]
+Name='บรรยากาศสถานที่ท่องเที่ยว'
+Range=[0 10]
+NumMFs=3
+MF1='เเย่':'gaussmf',[1.5 0]
+MF2='กลาง':'gaussmf',[1.5 5]
+MF3='ดีมาก':'gaussmf',[1.5 10]
+
+[Output1]
+Name='เรทติ้งสถานที่ท่องเที่ยว'
+Range=[0 15]
+NumMFs=3
+MF1='1ดาว(ต่ำ)':'trimf',[0 2.5 5]
+MF2='2ดาว(กลาง)':'trimf',[5 7.5 10]
+MF3='3ดาว(สูง)':'trimf',[10 12.5 15]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 2 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 2 (1) : 1
+3 1, 2 (1) : 1
+3 2, 2 (1) : 1
+3 3, 3 (1) : 1
